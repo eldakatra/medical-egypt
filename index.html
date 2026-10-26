@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ShifaLink — Better Healthcare Access in Egypt</title>
+<style>
+:root{--navy:#12324a;--teal:#087f8c;--mint:#e8f6f3;--coral:#f28c75;--ink:#203442;--muted:#667985;--paper:#f7faf9;--line:#e1eae8;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}
+header{background:#ffffffed;backdrop-filter:blur(12px);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.2rem;color:var(--navy);letter-spacing:-.5px}.logo{width:38px;height:38px;border-radius:12px;background:var(--teal);color:white;display:grid;place-items:center;font-size:23px}.navlinks{display:flex;align-items:center;gap:25px;color:#536773;font-size:.91rem}.navlinks a:hover{color:var(--teal)}.btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;background:var(--teal);color:white;font-weight:750;cursor:pointer;font-size:.93rem;transition:.2s}.btn:hover{transform:translateY(-1px);filter:brightness(.95)}.btn.outline{background:white;border:1px solid var(--line);color:var(--navy)}.btn.small{padding:9px 13px;font-size:.85rem}
+.hero{padding:72px 0 62px;background:radial-gradient(circle at 85% 18%,#d8f1ec 0,transparent 29%),linear-gradient(130deg,#f5fbf9,#edf7f5)}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#d9f0ec;color:#08717b;border-radius:100px;padding:7px 12px;font-size:.78rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase}.dot{height:7px;width:7px;background:#13a38b;border-radius:50%}h1{font-size:clamp(2.65rem,5.4vw,4.7rem);line-height:1.02;letter-spacing:-3px;color:var(--navy);margin:22px 0 20px;max-width:680px}h1 span{color:var(--teal)}.hero p{font-size:1.08rem;color:#5a707a;max-width:560px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.trust{display:flex;align-items:center;gap:10px;font-size:.85rem;color:#637780}.avatars{display:flex}.avatars span{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#d9e9e5;border:2px solid white;margin-left:-6px;font-size:.7rem}.avatars span:first-child{margin-left:0}
+.hero-card{background:white;border:1px solid #e0ece9;border-radius:25px;padding:23px;box-shadow:0 24px 65px #153e4b13;position:relative}.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.card-top strong{color:var(--navy)}.live{font-size:.75rem;color:#087a67;background:#e2f7ef;border-radius:30px;padding:5px 9px;font-weight:800}.hospital{border:1px solid var(--line);border-radius:16px;padding:15px;margin:12px 0}.hospital-head{display:flex;gap:12px;align-items:center}.h-icon{height:43px;width:43px;border-radius:13px;background:#e9f5f3;display:grid;place-items:center;font-size:21px}.hospital-name{font-weight:800;color:var(--navy)}.sub{font-size:.8rem;color:var(--muted)}.queue-row{display:flex;justify-content:space-between;align-items:end;margin-top:15px}.queue-number{font-size:1.7rem;font-weight:850;color:var(--teal);line-height:1.1}.queue-number small{font-size:.75rem;color:var(--muted);font-weight:500}.progress{height:6px;border-radius:10px;background:#eaf0ee;overflow:hidden;margin-top:12px}.progress span{display:block;height:100%;border-radius:10px;background:var(--teal)}
+/* Crowd status colors */
+#crowdTrackerCard.crowd-low{background:#f0fbf2!important;border-color:#86d69a!important}
+#crowdTrackerCard.crowd-medium{background:#fffbea!important;border-color:#f1d46b!important}
+#crowdTrackerCard.crowd-busy{background:#fff2f1!important;border-color:#f0a09a!important}
+#crowdLevel.crowd-low{color:#16803c!important;background:#dcfce5;padding:4px 9px;border-radius:999px}
+#crowdLevel.crowd-medium{color:#9a6700!important;background:#fef3c7;padding:4px 9px;border-radius:999px}
+#crowdLevel.crowd-busy{color:#b42318!important;background:#fee2e2;padding:4px 9px;border-radius:999px}
+#crowdProgress.crowd-low{background:#22a447!important}
+#crowdProgress.crowd-medium{background:#eab308!important}
+#crowdProgress.crowd-busy{background:#dc2626!important}.mini-note{display:flex;gap:10px;background:#fff5ed;color:#7b553b;border-radius:12px;padding:12px;font-size:.8rem;margin-top:15px}
+.section{padding:74px 0}.section.white{background:white}.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:30px}.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:1.3px;font-weight:850;color:var(--teal)}h2{font-size:clamp(1.9rem,3.6vw,2.8rem);letter-spacing:-1.4px;line-height:1.12;color:var(--navy);margin:9px 0 12px}.section-head p{max-width:520px;color:var(--muted);margin:0}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature{background:white;border:1px solid var(--line);padding:23px;border-radius:18px}.feature .symbol{height:47px;width:47px;border-radius:14px;background:var(--mint);display:grid;place-items:center;font-size:23px;margin-bottom:18px}.feature h3{color:var(--navy);margin:0 0 8px;font-size:1.12rem}.feature p{font-size:.91rem;color:var(--muted);margin:0}.tag{display:inline-block;border-radius:8px;background:#f0f6f4;color:#4b6b70;font-size:.73rem;font-weight:750;padding:5px 8px;margin-top:17px}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:20px}.tool-card{border:1px solid var(--line);border-radius:22px;padding:25px;background:white}.tool-title{display:flex;gap:13px;align-items:center;margin-bottom:20px}.tool-title .symbol{height:45px;width:45px;display:grid;place-items:center;background:var(--mint);border-radius:13px;font-size:22px}.tool-title h3{margin:0;color:var(--navy)}.tool-title p{margin:2px 0 0;color:var(--muted);font-size:.84rem}label{font-weight:750;font-size:.84rem;color:#3d5663;display:block;margin:14px 0 7px}input,select,textarea{width:100%;padding:12px 13px;border:1px solid #dce7e4;border-radius:11px;background:#fbfdfc;color:var(--ink);font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px #087f8c15}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.result{background:#edf8f5;border-radius:13px;padding:14px;margin-top:15px;display:none}.result strong{font-size:1.2rem;color:var(--teal)}.result p{font-size:.83rem;color:#536d72;margin:3px 0 0}.result.show{display:block}
+.listing{display:flex;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}.listing:last-child{border-bottom:0}.listing strong{display:block;color:var(--navy)}.listing .price{font-weight:850;color:var(--teal);white-space:nowrap}.listing .sub{max-width:320px}.pill{display:inline-block;background:#fff0e9;color:#9a563f;border-radius:7px;padding:3px 7px;font-size:.68rem;font-weight:800;margin-left:5px}
+.report{background:var(--navy);color:white;border-radius:24px;padding:34px;display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:start}.report h2{color:white}.report p{color:#c1d1d8}.report .kicker{color:#7ce0d0}.report label{color:#e2ebee}.report input,.report select,.report textarea{background:#ffffff0d;border-color:#ffffff2c;color:white}.report select option{color:var(--ink)}.report .btn{background:#6be0ce;color:#103748}.report .result{background:#e2f8f2;color:var(--navy)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{padding:20px;border-top:3px solid #b8e5dc;background:#f5faf8;border-radius:0 0 14px 14px}.step-num{font-size:.75rem;font-weight:900;color:var(--teal)}.step h3{margin:7px 0;color:var(--navy);font-size:1rem}.step p{font-size:.86rem;color:var(--muted);margin:0}
+footer{padding:30px 0;background:#0c2639;color:#cfdee3}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-inner .brand{color:white}.footer-inner p{font-size:.8rem;margin:6px 0;color:#a9bec8}.disclaimer{font-size:.75rem;color:#9eb4bd;max-width:600px}
+.mobile-menu{display:none}
+@media(max-width:800px){.navlinks{display:none}.hero-grid,.report{grid-template-columns:1fr}.hero{padding-top:45px}.hero-grid{gap:28px}.grid3{grid-template-columns:1fr}.tools{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.section-head{display:block}.section-head .btn{margin-top:16px}h1{letter-spacing:-2px}.footer-inner{align-items:flex-start;flex-direction:column}}
+@media(max-width:460px){.two{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.hero-actions .btn{width:100%}.hero-card{padding:16px}.report{padding:23px}}
+
+.language-gate{position:fixed;inset:0;z-index:1000;background:radial-gradient(circle at 85% 15%,#d8f1ec 0,transparent 32%),linear-gradient(135deg,#f4faf8,#e5f4f0);display:grid;place-items:center;padding:22px}
+.language-panel{width:min(520px,100%);background:white;border:1px solid #e0ece9;border-radius:28px;padding:clamp(26px,5vw,48px);box-shadow:0 28px 90px #12324a18;text-align:center}
+.language-mark{width:58px;height:58px;display:grid;place-items:center;margin:0 auto 18px;background:#087f8c;color:white;border-radius:18px;font-size:30px}
+.language-kicker{font-size:.75rem;letter-spacing:2px;font-weight:850;color:#087f8c;margin:0}
+.language-panel h1{font-size:clamp(2rem,6vw,2.8rem);letter-spacing:-1.5px;line-height:1.1;color:#12324a;margin:12px 0}
+.language-intro{color:#667985;margin:0 0 25px}
+.language-options{display:grid;gap:12px}
+.language-choice{display:flex;align-items:center;gap:14px;text-align:left;width:100%;padding:16px;border:1px solid #dce8e5;border-radius:16px;background:#fbfdfc;color:#12324a;cursor:pointer;font:inherit;transition:.2s}
+.language-choice:hover{border-color:#087f8c;transform:translateY(-1px);box-shadow:0 8px 22px #12324a0d}
+.choice-icon{width:45px;height:45px;border-radius:12px;background:#e5f5f1;color:#087f8c;display:grid;place-items:center;font-weight:900}
+.language-choice strong,.language-choice small{display:block}.language-choice small{font-size:.8rem;color:#667985;margin-top:2px}.choice-arrow{margin-left:auto;font-size:1.2rem;color:#087f8c}.language-foot{font-size:.78rem;color:#75868d;margin:22px 0 0;line-height:1.8}
+body.gate-open{overflow:hidden}
+html[dir="rtl"] body{text-align:right}
+html[dir="rtl"] .nav,html[dir="rtl"] .navlinks,html[dir="rtl"] .section-head,html[dir="rtl"] .card-top,html[dir="rtl"] .queue-row,html[dir="rtl"] .listing,html[dir="rtl"] .footer-inner{direction:rtl}
+html[dir="rtl"] .hero-grid,html[dir="rtl"] .tools,html[dir="rtl"] .grid3,html[dir="rtl"] .steps{direction:rtl}
+html[dir="rtl"] .hospital-head,html[dir="rtl"] .tool-title,html[dir="rtl"] .trust{direction:rtl}
+html[dir="rtl"] .choice-arrow{margin-left:0;margin-right:auto}
+html[dir="rtl"] .language-choice{text-align:right}
+html[dir="rtl"] .hero-actions{direction:rtl}
+html[dir="rtl"] .mini-note{direction:rtl}
+
+</style>
+</head>
+<body>
+
+<div id="languageGate" class="language-gate" role="dialog" aria-modal="true" aria-labelledby="languageTitle">
+  <div class="language-panel">
+    <div class="language-mark">✚</div>
+    <p class="language-kicker">SHIFALINK · EGYPT</p>
+    <h1 id="languageTitle">Choose your language</h1>
+    <p class="language-intro">اختر اللغة للمتابعة إلى منصة شفاء لينك للرعاية الصحية.</p>
+    <div class="language-options">
+      <button class="language-choice" onclick="chooseLanguage('en')"><span class="choice-icon">EN</span><span><strong>English</strong><small>Continue in English</small></span><span class="choice-arrow">→</span></button>
+      <button class="language-choice arabic-choice" onclick="chooseLanguage('ar')"><span class="choice-icon">ع</span><span><strong lang="ar" dir="rtl">العربية</strong><small lang="ar" dir="rtl">المتابعة باللغة العربية</small></span><span class="choice-arrow">←</span></button>
+    </div>
+    <p class="language-foot">Better healthcare access, for everyone.<br><span lang="ar">رعاية صحية أوضح للجميع.</span></p>
+  </div>
+</div>
+
+<header><div class="wrap nav">
+<a class="brand" href="#home"><span class="logo">✚</span> ShifaaLink</a>
+<nav class="navlinks"><a href="#problems">Challenges</a><a href="#tools">Care tools</a><a href="#hospitals">Hospitals</a><a href="#pharmacies">Pharmacies</a><a href="#support">Financial aid</a><a href="#report">Share a problem</a></nav>
+<a class="btn small" href="#tools">Find smarter care ↗</a>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid">
+<div><span class="eyebrow"><span class="dot"></span> A clearer path to care in Egypt</span>
+<h1>Healthcare should heal, <span>not overwhelm.</span></h1>
+<p>Long queues. Costly medicine. Confusing procedure fees. ShifaaLink is a concept platform designed to help people compare care options, understand costs, and spend less time navigating the system.</p>
+<div class="hero-actions"><a class="btn" href="#tools">Explore care tools <span>→</span></a><a class="btn outline" href="#solutions">See the solutions</a></div>
+<div class="trust"><div class="avatars"><span>♥</span><span>✚</span><span>+</span></div><span>Built around clearer information and fairer access</span></div>
+</div>
+<div class="hero-card">
+<div class="card-top"><strong>Hospital queue snapshot</strong><span class="live">● DEMO DATA</span></div>
+<div class="hospital"><div class="hospital-head"><div class="h-icon">🏥</div><div><div class="hospital-name">NileCare General Hospital</div><div class="sub">Fictional demo · Cairo</div></div></div><div class="queue-row"><div><div class="queue-number">~35 min</div><div class="sub">Estimated wait</div></div><div style="text-align:right"><strong>18 people</strong><div class="sub">In queue</div></div></div><div class="progress"><span style="width:62%"></span></div></div>
+<div class="hospital"><div class="hospital-head"><div class="h-icon">🩺</div><div><div class="hospital-name">Lotus Community Hospital</div><div class="sub">Fictional demo · Giza</div></div></div><div class="queue-row"><div><div class="queue-number">~15 min</div><div class="sub">Estimated wait</div></div><div style="text-align:right"><strong>6 people</strong><div class="sub">In queue</div></div></div><div class="progress"><span style="width:25%"></span></div></div>
+<div class="mini-note"><span>ⓘ</span><span>These figures are mock data for a website concept, not live hospital information.</span></div>
+</div>
+</div></section>
+<section class="section white" id="problems"><div class="wrap">
+<div class="section-head"><div><span class="kicker">The problems people face</span><h2>Three barriers. One connected solution.</h2></div><p>People need practical information before they travel, wait in line, or commit to a medical expense.</p></div>
+<div class="grid3">
+<div class="feature"><div class="symbol">⏱️</div><h3>Overcrowded hospitals</h3><p>Unclear waiting times and crowded clinics can mean long days, missed work, and difficult journeys for patients.</p><span class="tag">SOLUTION · Queue visibility</span></div>
+<div class="feature"><div class="symbol">💊</div><h3>Expensive medicines</h3><p>Finding an available, affordable medicine can be difficult when prices and stock differ between pharmacies.</p><span class="tag">SOLUTION · Price comparison</span></div>
+<div class="feature"><div class="symbol">🧾</div><h3>Unclear procedure costs</h3><p>Patients may struggle to estimate the total cost of tests, scans, consultations, or procedures before booking.</p><span class="tag">SOLUTION · Cost transparency</span></div>
+</div></div></section>
+<section class="section" id="tools"><div class="wrap">
+<div class="section-head"><div><span class="kicker">Practical care tools</span><h2>Make a more informed next move.</h2></div><p>Try the interactive demos below. Sample prices and wait times are illustrative and must be verified with providers.</p></div>
+<div class="tools">
+<div class="tool-card"><div class="tool-title"><div class="symbol">👥</div><div><h3>Hospital crowd tracker</h3><p>See the current crowd level and people waiting at a hospital.</p></div></div>
+<label for="trackerHospital">Choose a hospital</label><select id="trackerHospital" onchange="updateCrowdTracker()"><option value="nilecare">NileCare General Hospital · Cairo</option><option value="lotus">Lotus Community Hospital · Giza</option><option value="pyramid">Pyramid Crescent Medical Center · Giza</option><option value="alex">Alexandria Harbor Health Clinic · Alexandria</option><option value="lotusuni">Golden Lotus University Hospital · Assiut</option></select>
+<div id="crowdTrackerCard" style="margin-top:15px;border:1px solid var(--line);border-radius:15px;padding:16px;background:#fbfdfc">
+<div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><span style="font-weight:800;color:var(--navy)">People currently waiting</span><span class="live">DEMO DATA</span></div>
+<div style="display:flex;align-items:baseline;gap:9px;margin:12px 0"><strong id="crowdCount" style="font-size:2.5rem;line-height:1;color:var(--teal)">42</strong><span class="sub">people in queue</span></div>
+<div class="progress"><span id="crowdProgress" style="width:70%"></span></div>
+<div style="display:flex;justify-content:space-between;gap:10px;margin-top:9px"><span id="crowdLevel" style="font-size:.84rem;font-weight:800;color:#a75a31">Busy</span><span id="crowdUpdated" class="sub">Demo snapshot · not live</span></div>
+</div>
+<div class="listing"><div><strong>Estimated wait</strong><div class="sub">Illustrative estimate only</div></div><span id="crowdWait" class="price">~45 min</span></div>
+<button class="btn" style="margin-top:17px;width:100%" onclick="updateCrowdTracker(true)">Refresh crowd snapshot ↻</button>
+<div class="mini-note"><span>ⓘ</span><span>This prototype uses fictional sample numbers. Real-time tracking requires hospitals to share live queue or check-in data securely.</span></div></div>
+<div class="tool-card"><div class="tool-title"><div class="symbol">💊</div><div><h3>Medicine affordability guide</h3><p>Know what to ask the pharmacist.</p></div></div>
+<label for="medicine">Search a medicine or active ingredient</label><input id="medicine" placeholder="e.g. medicine name or active ingredient">
+<button class="btn" style="margin-top:17px;width:100%" onclick="medicineHelp()">Show safe next steps</button>
+<div class="result" id="medicineResult" aria-live="polite"></div>
+<p class="sub" style="margin-top:12px">No live pharmacy prices or stock are connected in this demo.</p></div>
+<div class="tool-card"><div class="tool-title"><div class="symbol">🤝</div><div><h3>Lower-cost care checklist</h3><p>Questions that may help reduce unexpected costs.</p></div></div>
+<div class="listing"><div><strong>Ask about public or university hospitals</strong><div class="sub">Check eligibility, appointment rules, and service availability.</div></div><span>01</span></div>
+<div class="listing"><div><strong>Request an itemized estimate</strong><div class="sub">Ask what is included and whether follow-up fees apply.</div></div><span>02</span></div>
+<div class="listing"><div><strong>Ask about medicine alternatives</strong><div class="sub">Only a qualified doctor or pharmacist should confirm a suitable equivalent.</div></div><span>03</span></div>
+<div class="listing"><div><strong>Check assistance options</strong><div class="sub">Ask the hospital social-work office or relevant official programs.</div></div><span>04</span></div>
+</div>
+</div></div></section>
+<section class="section white" id="solutions"><div class="wrap">
+<div class="section-head"><div><span class="kicker">How ShifaaLink could work</span><h2>From confusion to coordinated care.</h2></div><p>A responsible service depends on verified provider data, clear pricing, privacy, and partnerships—not guesswork.</p></div>
+<div class="steps">
+<div class="step"><div class="step-num">STEP 01</div><h3>Verified information</h3><p>Hospitals and pharmacies update service availability, queue estimates, and prices with timestamps.</p></div>
+<div class="step"><div class="step-num">STEP 02</div><h3>Compare options</h3><p>Patients compare distance, estimated wait, service fees, and accessibility in one place.</p></div>
+<div class="step"><div class="step-num">STEP 03</div><h3>Plan the visit</h3><p>Appointment requests and queue notifications help spread demand where providers support them.</p></div>
+<div class="step"><div class="step-num">STEP 04</div><h3>Protect patients</h3><p>Show sources and update times, minimize personal data, and route medical decisions to professionals.</p></div>
+</div></div></section>
+
+<section class="section white" id="hospitals"><div class="wrap">
+<div class="section-head"><div><span class="kicker">Hospital & care directory</span><h2>Find a place to start.</h2></div><p>Explore care categories and use the contact details supplied by participating providers to confirm services, hours, and appointments.</p></div>
+<div class="tools">
+<div class="tool-card"><div class="tool-title"><div class="symbol">🏥</div><div><h3>General hospital directory</h3><p>Browse care options by area and specialty.</p></div></div>
+<label for="hospitalSearch">Search care options</label><input id="hospitalSearch" placeholder="e.g. general hospital, cardiology">
+<div class="two"><div><label for="hospitalArea">Area</label><select id="hospitalArea"><option>All areas</option><option>Cairo</option><option>Giza</option><option>Alexandria</option><option>Assiut</option></select></div><div><label for="hospitalType">Care type</label><select id="hospitalType"><option>All services</option><option>General care</option><option>Pediatrics</option><option>Dental</option><option>Dermatology</option></select></div></div>
+<button class="btn" style="margin-top:17px;width:100%" onclick="filterCare()">Search sample directory</button><div class="result" id="hospitalResult" aria-live="polite"></div></div>
+<div class="tool-card"><div class="tool-title"><div class="symbol">📅</div><div><h3>Appointment request demo</h3><p>Plan what to ask before visiting.</p></div></div>
+<label for="appointmentType">Service needed</label><select id="appointmentType"><option>General consultation</option><option>Specialist consultation</option><option>Lab test</option><option>Imaging</option></select>
+<label for="appointmentArea">Preferred area</label><select id="appointmentArea"><option>Cairo</option><option>Giza</option><option>Alexandria</option><option>Assiut</option></select>
+<button class="btn" style="margin-top:17px;width:100%" onclick="appointmentDemo()">Prepare appointment checklist</button><div class="result" id="appointmentResult" aria-live="polite"></div>
+<p class="sub" style="margin-top:12px">This does not reserve a real appointment. Contact the provider directly to confirm availability.</p></div>
+</div></div></section>
+<section class="section" id="pharmacies"><div class="wrap">
+<div class="section-head"><div><span class="kicker">Pharmacy directory</span><h2>Check before you travel.</h2></div><p>Find pharmacy options by area and prepare the right questions about availability, price, and safe substitutions.</p></div>
+<div class="tools">
+<div class="tool-card"><div class="tool-title"><div class="symbol">💊</div><div><h3>Pharmacy finder demo</h3><p>Filter illustrative pharmacy listings.</p></div></div>
+<label for="pharmacyArea">Choose an area</label><select id="pharmacyArea"><option>Cairo</option><option>Giza</option><option>Alexandria</option><option>Assiut</option></select>
+<label for="pharmacyNeed">What do you need?</label><select id="pharmacyNeed"><option>Check medicine stock</option><option>Ask about current price</option><option>Ask about generic availability</option></select>
+<button class="btn" style="margin-top:17px;width:100%" onclick="pharmacyDemo()">Show next steps</button><div class="result" id="pharmacyResult" aria-live="polite"></div></div>
+<div class="tool-card"><div class="tool-title"><div class="symbol">🛡️</div><div><h3>Medicine safety reminder</h3><p>Affordability matters, but safety comes first.</p></div></div>
+<div class="listing"><div><strong>Check the active ingredient</strong><div class="sub">Ask a licensed pharmacist to confirm the medicine and strength.</div></div><span>01</span></div>
+<div class="listing"><div><strong>Confirm the current price</strong><div class="sub">Prices and stock can change; call before travelling.</div></div><span>02</span></div>
+<div class="listing"><div><strong>Do not change a prescription alone</strong><div class="sub">Ask your prescriber or pharmacist before switching medicines.</div></div><span>03</span></div>
+</div></div></div></section>
+<section class="section white" id="support"><div class="wrap">
+<div class="section-head"><div><span class="kicker">Financial aid & support</span><h2>Explore official support channels.</h2></div><p>Eligibility and services vary. Use official sources to check current programs and ask providers about social-work or assistance services.</p></div>
+<div class="grid3">
+<div class="feature"><div class="symbol">🇪🇬</div><h3>Egyptian Ministry of Health</h3><p>Check official healthcare information, services, and support channels.</p><a class="btn outline small" style="margin-top:17px" href="https://www.mohp.gov.eg/" target="_blank" rel="noopener">Visit official website ↗</a></div>
+<div class="feature"><div class="symbol">❤️</div><h3>Egyptian Red Crescent</h3><p>Explore official humanitarian and health-support information.</p><a class="btn outline small" style="margin-top:17px" href="https://egyptianrc.org/" target="_blank" rel="noopener">Visit official website ↗</a></div>
+<div class="feature"><div class="symbol">🤝</div><h3>Ask about assistance</h3><p>Ask a hospital social-work office about eligibility, required documents, and available support programs.</p><a class="btn small" style="margin-top:17px" href="#report">Share a service barrier ↓</a></div>
+</div></div></section>
+
+<section class="section" id="report"><div class="wrap"><div class="report">
+<div><span class="kicker">Help improve care</span><h2>What is the biggest barrier in your area?</h2><p>Share a general problem to help shape future features. Please do not include names, medical records, phone numbers, or other personal health details.</p><p style="font-size:.82rem">Prototype only: reports stay in this page and are not sent to a hospital or public authority.</p></div>
+<form id="reportForm" onsubmit="submitReport(event)">
+<label for="problem">Problem type</label><select id="problem" required><option value="">Choose a problem</option><option>Long waiting times</option><option>Medicine affordability</option><option>Unclear procedure prices</option><option>Appointment access</option><option>Accessibility or transport</option><option>Other service issue</option></select>
+<div class="two"><div><label for="city">Governorate / area</label><select id="city" required><option value="">Choose area</option><option>Cairo</option><option>Giza</option><option>Alexandria</option><option>Qalyubia</option><option>Assiut</option><option>Other / prefer not to say</option></select></div><div><label for="setting">Healthcare setting</label><select id="setting"><option>Public hospital</option><option>Private hospital</option><option>Pharmacy</option><option>Clinic / medical center</option><option>Prefer not to say</option></select></div></div>
+<label for="details">Brief description (optional)</label><textarea id="details" rows="3" maxlength="400" placeholder="Describe the general service issue — no personal medical information."></textarea>
+<button class="btn" type="submit" style="margin-top:17px;width:100%">Submit demo report ↗</button><div class="result" id="reportResult" aria-live="polite"></div>
+</form>
+</div></div></section>
+</main>
+<footer><div class="wrap footer-inner"><div><a class="brand" href="#home"><span class="logo">✚</span> ShifaaLink</a><p>Care, without the chaos.</p></div><div class="disclaimer">Concept website for improving healthcare access in Egypt. Queue times and cost estimates are mock examples, not verified live data or medical advice. Always confirm availability, prices, and treatment decisions with licensed providers.</div></div></footer>
+<script>
+const queueSamples={
+general:{wait:35,count:18,tip:"General clinics can be busy early in the day. Confirm clinic hours before travelling."},
+pediatrics:{wait:25,count:12,tip:"For urgent symptoms in a child, seek prompt professional assessment rather than relying on queue estimates."},
+dentist:{wait:20,count:8,tip:"Ask whether the clinic requires an appointment and whether the consultation fee is separate."},
+dermatology:{wait:45,count:22,tip:"Specialist availability varies. Confirm the next available appointment with the clinic."}
+};
+function estimateQueue(){const type=document.getElementById('specialty').value;const area=document.getElementById('area').value;const q=queueSamples[type];const el=document.getElementById('queueResult');el.innerHTML='<strong>Sample estimate: about '+q.wait+' minutes</strong><p>'+q.count+' people in a fictional queue · '+area+'. '+q.tip+'</p><p><b>Important:</b> this is sample content, not a real hospital feed.</p>';el.classList.add('show')}
+function medicineHelp(){const name=document.getElementById('medicine').value.trim();const el=document.getElementById('medicineResult');if(!name){el.innerHTML='<strong>Enter a medicine name first.</strong><p>Use the active ingredient if you know it.</p>';el.classList.add('show');return}el.innerHTML='<strong>Questions to ask about “'+escapeHTML(name)+'”</strong><p>1. Is there a registered generic with the same active ingredient and strength? 2. What is the current price and availability? 3. Is it suitable for my prescription and other medicines? Ask a licensed pharmacist or prescriber to confirm any substitution. Do not stop or change a prescribed medicine on your own.</p><p>This demo does not check real prices, stock, or product equivalence.</p>';el.classList.add('show')}
+function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function submitReport(e){e.preventDefault();const problem=document.getElementById('problem').value;const city=document.getElementById('city').value;const el=document.getElementById('reportResult');el.innerHTML='<strong>Demo report prepared ✓</strong><p>Your sample report about '+escapeHTML(problem.toLowerCase())+' in '+escapeHTML(city)+' has been shown locally. It has not been transmitted or saved.</p>';el.classList.add('show')}
+
+function filterCare(){const term=document.getElementById('hospitalSearch').value.trim().toLowerCase();const area=document.getElementById('hospitalArea').value;const type=document.getElementById('hospitalType').value;const el=document.getElementById('hospitalResult');const demos=[{name:'NileCare General Hospital',area:'Cairo',type:'General care',desc:'General outpatient care · Fictional sample listing'},{name:'Lotus Community Hospital',area:'Giza',type:'Pediatrics',desc:'Community and family care · Fictional sample listing'},{name:'Pyramid Crescent Medical Center',area:'Giza',type:'Dental',desc:'Dental and outpatient services · Fictional sample listing'},{name:'Alexandria Harbor Health Clinic',area:'Alexandria',type:'Dermatology',desc:'Specialist clinic · Fictional sample listing'},{name:'Golden Lotus University Hospital',area:'Assiut',type:'General care',desc:'Teaching and outpatient services · Fictional sample listing'}];const matches=demos.filter(h=>(area==='All areas'||h.area===area)&&(type==='All services'||h.type===type)&&(!term||(h.name+' '+h.desc+' '+h.type).toLowerCase().includes(term)));el.innerHTML='<strong>Fictional demo listings</strong>'+ (matches.length?matches.map(h=>'<div class="listing"><div><strong>'+escapeHTML(h.name)+'</strong><div class="sub">'+escapeHTML(h.area)+' · '+escapeHTML(h.desc)+'</div></div><span class="pill">DEMO</span></div>').join(''):'<p>No fictional sample listings match those filters. Try another area or service.</p>')+'<p>These hospital names are invented for the prototype. They are not real providers and are not connected to live booking or hospital data.</p>';el.classList.add('show')}
+function appointmentDemo(){const type=document.getElementById('appointmentType').value;const area=document.getElementById('appointmentArea').value;const el=document.getElementById('appointmentResult');el.innerHTML='<strong>Before you call</strong><p>Ask providers in '+escapeHTML(area)+' about availability for '+escapeHTML(type.toLowerCase())+', consultation or service fees, required documents, accessibility, and expected waiting time. This demo does not book an appointment.</p>';el.classList.add('show')}
+function pharmacyDemo(){const area=document.getElementById('pharmacyArea').value;const need=document.getElementById('pharmacyNeed').value;const el=document.getElementById('pharmacyResult');el.innerHTML='<strong>Pharmacy check · '+escapeHTML(area)+'</strong><p>Call a licensed pharmacy to '+escapeHTML(need.toLowerCase())+'. Confirm the exact medicine name, active ingredient, strength, pack size, current price, and stock before travelling. No live pharmacy directory is connected.</p>';el.classList.add('show')}
+
+
+const shifaaTranslations = {
+"ShifaLink — Better Healthcare Access in Egypt":"شفاء لينك — رعاية صحية أفضل في مصر",
+"Challenges":"التحديات","Care tools":"أدوات الرعاية","Hospitals":"المستشفيات","Pharmacies":"الصيدليات","Financial aid":"المساعدات المالية","Share a problem":"شارك مشكلة",
+"Find smarter care ↗":"اعثر على رعاية أفضل ↗","A clearer path to care in Egypt":"طريق أوضح للرعاية الصحية في مصر",
+"Healthcare should heal,":"الرعاية الصحية للشفاء،","not overwhelm.":"لا لزيادة المعاناة.",
+"Long queues. Costly medicine. Confusing procedure fees. ShifaaLink is a concept platform designed to help people compare care options, understand costs, and spend less time navigating the system.":"طوابير طويلة، وأدوية مرتفعة التكلفة، وأسعار غير واضحة للإجراءات الطبية. شفاء لينك منصة تجريبية تساعدك على مقارنة خيارات الرعاية وفهم التكاليف وتوفير الوقت.",
+"Explore care tools":"استكشف أدوات الرعاية","See the solutions":"تعرّف على الحلول","Built around clearer information and fairer access":"معلومات أوضح وإمكانية وصول أكثر عدلًا",
+"Hospital queue snapshot":"نظرة سريعة على طوابير المستشفيات","● DEMO DATA":"● بيانات تجريبية","NileCare General Hospital":"عيادة خارجية حكومية","Fictional demo · Cairo":"مثال توضيحي · القاهرة","Estimated wait":"وقت الانتظار المتوقع","18 people":"١٨ شخصًا","In queue":"في الطابور","Lotus Community Hospital":"مركز رعاية صحية مجتمعي","Fictional demo · Giza":"مثال توضيحي · الجيزة","6 people":"٦ أشخاص","These figures are mock data for a website concept, not live hospital information.":"هذه الأرقام تجريبية لتوضيح فكرة الموقع وليست بيانات مباشرة من المستشفيات.",
+"The problems people face":"المشكلات التي يواجهها الناس","Three barriers. One connected solution.":"ثلاثة عوائق، وحل مترابط واحد.","People need practical information before they travel, wait in line, or commit to a medical expense.":"يحتاج الناس إلى معلومات عملية قبل التنقل أو الانتظار أو دفع تكاليف العلاج.",
+"Overcrowded hospitals":"ازدحام المستشفيات","Expensive medicines":"الأدوية مرتفعة التكلفة","Unclear procedure costs":"عدم وضوح تكاليف الإجراءات","Long waiting times":"طول فترات الانتظار","Medicine affordability":"تكلفة الأدوية","Queue visibility":"وضوح الطوابير","Price comparison":"مقارنة الأسعار","Cost transparency":"شفافية التكاليف",
+"Practical care tools":"أدوات عملية للرعاية","Make a more informed next move.":"اتخذ خطوتك التالية بمعلومات أوضح.","Try the interactive demos below. Sample prices and wait times are illustrative and must be verified with providers.":"جرّب الأدوات التوضيحية أدناه. الأسعار وأوقات الانتظار أمثلة فقط ويجب التأكد منها لدى مقدمي الخدمة.",
+"Hospital crowd tracker":"متتبع ازدحام المستشفيات","See the current crowd level and people waiting at a hospital.":"اطّلع على مستوى الازدحام وعدد الأشخاص المنتظرين في المستشفى.","Choose a hospital":"اختر مستشفى","People currently waiting":"عدد الأشخاص المنتظرين حاليًا","people in queue":"شخصًا في الطابور","Busy":"مزدحم","Moderate":"متوسط","Low crowd":"ازدحام منخفض","Very busy":"مزدحم جدًا","Demo snapshot · not live":"بيانات تجريبية · ليست مباشرة","Estimated wait":"وقت الانتظار المتوقع","Illustrative estimate only":"تقدير توضيحي فقط","Refresh crowd snapshot ↻":"تحديث بيانات الازدحام ↻","This prototype uses fictional sample numbers. Real-time tracking requires hospitals to share live queue or check-in data securely.":"يستخدم هذا النموذج أرقامًا خيالية. يتطلب التتبع الفوري مشاركة المستشفيات بيانات الطوابير أو تسجيل الوصول بشكل آمن.","Estimate a visit and explore a sample clinic option.":"قدّر وقت الزيارة واستكشف خيارات العيادات.","What kind of care do you need?":"ما نوع الرعاية التي تحتاجها؟","General outpatient clinic":"عيادة خارجية عامة","Pediatrics":"طب الأطفال","Dental clinic":"عيادة أسنان","Dermatology":"الأمراض الجلدية","Preferred area":"المنطقة المفضلة","Show sample options":"عرض خيارات تجريبية",
+"Private":"خاص",
+"Medicine affordability guide":"دليل توفير تكلفة الأدوية","Know what to ask the pharmacist.":"اعرف ما الذي تسأل عنه الصيدلي.","Search a medicine or active ingredient":"ابحث عن اسم الدواء أو المادة الفعالة","Show safe next steps":"عرض الخطوات التالية الآمنة",
+"Lower-cost care checklist":"قائمة خيارات الرعاية الأقل تكلفة","Questions that may help reduce unexpected costs.":"أسئلة قد تساعد على تقليل التكاليف غير المتوقعة.","Ask about public or university hospitals":"اسأل عن المستشفيات الحكومية أو الجامعية","Request an itemized estimate":"اطلب تقديرًا مفصلًا للتكاليف","Ask about medicine alternatives":"اسأل عن بدائل الأدوية","Check assistance options":"تحقق من خيارات المساعدة",
+"Hospital & care directory":"دليل المستشفيات والرعاية","Find a place to start.":"اعثر على نقطة البداية المناسبة.","Explore care categories and use the contact details supplied by participating providers to confirm services, hours, and appointments.":"استكشف أنواع الرعاية وتواصل مع مقدمي الخدمة للتأكد من الخدمات والمواعيد وساعات العمل.","General hospital directory":"دليل المستشفيات العامة","Browse care options by area and specialty.":"تصفح خيارات الرعاية حسب المنطقة والتخصص.","Search care options":"ابحث عن خيارات الرعاية","All areas":"كل المناطق","All services":"كل الخدمات","Search sample directory":"البحث في الدليل التجريبي","Appointment request demo":"تجربة طلب موعد","Plan what to ask before visiting.":"جهّز الأسئلة قبل الزيارة.","Service needed":"الخدمة المطلوبة","General consultation":"استشارة عامة","Specialist consultation":"استشارة أخصائي","Lab test":"تحليل مختبر","Imaging":"تصوير طبي","Prepare appointment checklist":"إعداد قائمة الموعد",
+"Pharmacy directory":"دليل الصيدليات","Check before you travel.":"تحقق قبل أن تتحرك.","Find pharmacy options by area and prepare the right questions about availability, price, and safe substitutions.":"اعثر على خيارات الصيدليات حسب المنطقة وجهّز أسئلتك عن التوفر والسعر والبدائل الآمنة.","Pharmacy finder demo":"تجربة البحث عن صيدلية","Filter illustrative pharmacy listings.":"تصفّح قوائم صيدليات توضيحية.","Choose an area":"اختر المنطقة","Check medicine stock":"تحقق من توفر الدواء","Ask about current price":"اسأل عن السعر الحالي","Ask about generic availability":"اسأل عن توفر دواء مكافئ","Show next steps":"عرض الخطوات التالية","Medicine safety reminder":"تذكير بسلامة الأدوية","Affordability matters, but safety comes first.":"التكلفة مهمة، لكن السلامة أولًا.",
+"Financial aid & support":"المساعدات المالية والدعم","Explore official support channels.":"استكشف قنوات الدعم الرسمية.","Eligibility and services vary. Use official sources to check current programs and ask providers about social-work or assistance services.":"تختلف شروط الاستحقاق والخدمات. راجع المصادر الرسمية واسأل مقدمي الخدمة عن برامج المساعدة المتاحة.","Egyptian Ministry of Health":"وزارة الصحة والسكان المصرية","Visit official website ↗":"زيارة الموقع الرسمي ↗","Egyptian Red Crescent":"الهلال الأحمر المصري","Explore official humanitarian and health-support information.":"اطّلع على المعلومات الرسمية حول الدعم الإنساني والصحي.","Ask about assistance":"اسأل عن المساعدة","What is the biggest barrier in your area?":"ما أكبر عائق في منطقتك؟","Share a general problem to help shape future features. Please do not include names, medical records, phone numbers, or other personal health details.":"شارك مشكلة عامة للمساعدة في تطوير المنصة. لا تكتب أسماء أو سجلات طبية أو أرقام هواتف أو تفاصيل صحية شخصية.","Problem type":"نوع المشكلة","Choose a problem":"اختر المشكلة","Area / governorate":"المنطقة / المحافظة","Choose area":"اختر المنطقة","Healthcare setting":"نوع جهة الرعاية","Brief description (optional)":"وصف مختصر (اختياري)","Submit demo report ↗":"إرسال بلاغ تجريبي ↗","From confusion to coordinated care.":"من الحيرة إلى رعاية أكثر تنظيمًا.","How ShifaLink could work":"كيف يمكن أن تعمل شفاء لينك","Verified information":"معلومات موثوقة","Compare options":"قارن الخيارات","Plan the visit":"خطط للزيارة","Protect patients":"حماية المرضى",
+"Concept website for improving healthcare access in Egypt. Queue times and cost estimates are mock examples, not verified live data or medical advice. Always confirm availability, prices, and treatment decisions with licensed providers.":"موقع تجريبي لتحسين الوصول إلى الرعاية الصحية في مصر. أوقات الانتظار والتكاليف أمثلة غير مؤكدة وليست بيانات مباشرة أو نصيحة طبية. تحقق دائمًا من التوفر والأسعار وقرارات العلاج لدى مقدمي خدمة مرخصين."
+};
+function chooseLanguage(lang){
+  const root=document.documentElement;
+  root.lang=lang; root.dir=lang==='ar'?'rtl':'ltr';
+  if(lang==='ar'){
+    document.title='شفاء لينك — رعاية صحية أفضل في مصر';
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+    let node; while((node=walker.nextNode())){const original=node.nodeValue;const key=original.trim();if(shifaaTranslations[key]) node.nodeValue=original.replace(key,shifaaTranslations[key]);}
+    document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{const map={'e.g. general hospital, cardiology':'مثال: مستشفى عام، أمراض القلب','e.g. medicine name or active ingredient':'مثال: اسم الدواء أو المادة الفعالة','Describe the general service issue — no personal medical information.':'صف مشكلة الخدمة بشكل عام — دون معلومات طبية شخصية.'};if(map[el.placeholder])el.placeholder=map[el.placeholder]});
+    document.querySelectorAll('option').forEach(el=>{const key=el.textContent.trim();if(shifaaTranslations[key])el.textContent=shifaaTranslations[key]});
+  }
+  document.getElementById('languageGate').style.display='none';
+  document.body.classList.remove('gate-open');
+}
+document.body.classList.add('gate-open');
+
+
+function updateCrowdTracker(refresh=false){
+ const samples={
+  nilecare:{count:42,wait:45,level:'Busy',levelAr:'مزدحم',status:'busy',area:'Cairo'},
+  lotus:{count:17,wait:20,level:'Medium',levelAr:'متوسط',status:'medium',area:'Giza'},
+  pyramid:{count:9,wait:12,level:'Low crowd',levelAr:'ازدحام منخفض',status:'low',area:'Giza'},
+  alex:{count:31,wait:35,level:'Busy',levelAr:'مزدحم',status:'busy',area:'Alexandria'},
+  lotusuni:{count:56,wait:65,level:'Busy',levelAr:'مزدحم',status:'busy',area:'Assiut'}
+ };
+ const key=document.getElementById('trackerHospital').value;
+ const s=samples[key];
+ const card=document.getElementById('crowdTrackerCard');
+ const level=document.getElementById('crowdLevel');
+ const progress=document.getElementById('crowdProgress');
+ card.classList.remove('crowd-low','crowd-medium','crowd-busy');
+ level.classList.remove('crowd-low','crowd-medium','crowd-busy');
+ progress.classList.remove('crowd-low','crowd-medium','crowd-busy');
+ card.classList.add('crowd-'+s.status);
+ level.classList.add('crowd-'+s.status);
+ progress.classList.add('crowd-'+s.status);
+ document.getElementById('crowdCount').textContent=String(s.count);
+ document.getElementById('crowdWait').textContent='~'+s.wait+' min';
+ document.getElementById('crowdLevel').textContent=document.documentElement.lang==='ar'?s.levelAr:s.level;
+ document.getElementById('crowdProgress').style.width=Math.min(100,Math.round(s.count/60*100))+'%';
+ document.getElementById('crowdUpdated').textContent='Demo snapshot · not live';
+}
+// Apply the correct status color to the initially selected hospital.
+document.addEventListener('DOMContentLoaded',()=>updateCrowdTracker());
+
+</script>
+</body></html>
